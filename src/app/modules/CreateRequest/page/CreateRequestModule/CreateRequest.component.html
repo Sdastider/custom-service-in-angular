@@ -1,0 +1,261 @@
+ <!-- <form [formGroup]="form" (ngSubmit)="submitForm()">
+<div class="card">
+    <div class="card-header" style="background:#3f51b5;color: white;">User Information Section</div>
+    <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4 ">
+                    <div class="form-group">
+                        <label>Requester Id : *</label>
+                        <input [class.is-invalid]="form.get('userid').invalid && form.get('userid').touched" type="text" class="form-control"  formControlName="userid" disabled/>
+                        <div *ngIf="form.get('userid').valid || form.get('userid').touched">
+                            <small *ngIf="form.get('userid').errors?.required" class="text-danger">First name required</small> 
+                            <small *ngIf="form.get('userid').errors?.minlength" class="text-danger">First name must be at least 3 Char</small> 
+                        </div>
+                    </div>
+                  </div>
+                 <div class="col-sm-4 ">
+                   <div class="form-group">
+                       <label>User Name : *</label>
+                       <input [class.is-invalid]="form.get('username').invalid && form.get('username').touched" type="text" class="form-control"  formControlName="username" disabled/>
+                       <div *ngIf="form.get('username').valid || form.get('username').touched">
+                           <small *ngIf="form.get('username').errors?.required" class="text-danger">First name required</small> 
+                           <small *ngIf="form.get('username').errors?.minlength" class="text-danger">First name must be at least 3 Char</small> 
+                       </div>
+                   </div>
+                 </div>
+            </div>
+    </div>
+</div>
+  <div class="card">
+      <div class="card-header" style="background: #3f51b5;color: white;">Req Information Section</div>
+      <div class="card-body">
+              <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Incident Type :	</label>
+                        <select [class.is-invalid]="form.get('ticket_incident_type').invalid && form.get('ticket_incident_type').touched" id="ticket_incident_type" class="form-control" formControlName="ticket_incident_type">
+                              <option value="">Select_Incident_type</option>
+                              <option value="incident">Incident</option>
+                              <option value="security_incident">Security Incident</option>
+                              <option value="service_request">Service Request</option>
+                        </select>
+                          <div *ngIf="form.get('ticket_incident_type').valid || form.get('ticket_incident_type').touched">
+                            <small *ngIf="form.get('ticket_incident_type').errors?.required" class="text-danger">Incident type required</small> 
+                          </div>
+                      </div>
+                    </div> 
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Category :	</label>
+                        <select [class.is-invalid]="form.get('ticket_catagory').invalid && form.get('ticket_catagory').touched" id="ticket_catagory" class="form-control" formControlName="ticket_catagory">
+                              <option value="">Select_category</option>
+                              <option value="CAT1">CAT1</option>
+                              <option value="CAT2">CAT2</option>
+                              <option value="CAT3">CAT3</option>
+                        </select>
+                          <div *ngIf="form.get('ticket_catagory').valid || form.get('ticket_catagory').touched">
+                            <small *ngIf="form.get('ticket_catagory').errors?.required" class="text-danger">Category required</small> 
+                          </div>
+                      </div>
+                    </div> 
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Sub Category :	</label>
+                        <select [class.is-invalid]="form.get('ticket_sub_catagory').invalid && form.get('ticket_sub_catagory').touched" id="ticket_sub_catagory" class="form-control" formControlName="ticket_sub_catagory">
+                              <option value="">Select_Sub_Category_type</option>
+                              <option value="SUB_CAT1">Sub Category 1</option>
+                              <option value="SUB_CAT2">Sub Category 2</option>
+                              <option value="SUB_CAT3">Sub Category 3</option>
+                        </select>
+                          <div *ngIf="form.get('ticket_sub_catagory').valid || form.get('ticket_sub_catagory').touched">
+                            <small *ngIf="form.get('ticket_sub_catagory').errors?.required" class="text-danger">Sub Category required</small> 
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Priority :	</label>
+                        <select [class.is-invalid]="form.get('ticket_priority').invalid && form.get('ticket_priority').touched" id="ticket_priority" class="form-control" formControlName="ticket_priority">
+                              <option value="">Select_priority_type</option>
+                              <option value="urgent">Urgent</option>
+                              <option value="medium">Medium</option>
+                              <option value="low">Low</option>
+                        </select>
+                          <div *ngIf="form.get('ticket_priority').valid || form.get('ticket_priority').touched">
+                            <small *ngIf="form.get('ticket_priority').errors?.required" class="text-danger">Priority required</small> 
+                          </div>
+                      </div>
+                    </div>
+                  </div> 
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label>Location :	</label>
+                        <select [class.is-invalid]="form.get('location').invalid && form.get('location').touched" id="location" class="form-control" formControlName="location">
+                              <option value="">Select_location</option>
+                              <option value="india">India</option>
+                              <option value="USA">USA</option>
+                              <option value="UK">UK</option>
+                        </select>
+                          <div *ngIf="form.get('location').valid || form.get('location').touched">
+                            <small *ngIf="form.get('location').errors?.required" class="text-danger">Location required</small> 
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-9">
+                      <div class="form-group">
+                          <label>Description :	</label>
+                          <textarea [class.is-invalid]="form.get('ticket_description').invalid && form.get('ticket_description').touched" type="text" class="form-control"  formControlName="ticket_description"> </textarea>
+                            <div *ngIf="form.get('ticket_description').valid || form.get('ticket_description').touched">
+                              <small *ngIf="form.get('ticket_description').errors?.required" class="text-danger">Description required</small> 
+                            </div>
+                          </div>
+                    </div> 
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <button type="submit" class="btn btn-outline-primary" style="width:100%">Update</button>
+                        </div>
+                  </div>
+      </div>
+  </div>
+</form>  -->
+
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title" style="height: 40px;">User Information Section</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4 ">
+                <div class="form-group">
+                    <label>Requester Id : *</label>
+                    <input [class.is-invalid]="form.get('userid').invalid && form.get('userid').touched" type="text" class="form-control"  formControlName="userid" disabled/>
+                    <div *ngIf="form.get('userid').valid || form.get('userid').touched">
+                        <small *ngIf="form.get('userid').errors?.required" class="text-danger">First name required</small> 
+                        <small *ngIf="form.get('userid').errors?.minlength" class="text-danger">First name must be at least 3 Char</small> 
+                    </div>
+                </div>
+              </div>
+             <div class="col-sm-4 ">
+               <div class="form-group">
+                   <label>User Name : *</label>
+                   <input [class.is-invalid]="form.get('username').invalid && form.get('username').touched" type="text" class="form-control"  formControlName="username" disabled/>
+                   <div *ngIf="form.get('username').valid || form.get('username').touched">
+                       <small *ngIf="form.get('username').errors?.required" class="text-danger">First name required</small> 
+                       <small *ngIf="form.get('username').errors?.minlength" class="text-danger">First name must be at least 3 Char</small> 
+                   </div>
+               </div>
+             </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title" style="height: 40px;">Req Information Section</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Incident Type :	</label>
+                <select [class.is-invalid]="form.get('ticket_incident_type').invalid && form.get('ticket_incident_type').touched" id="ticket_incident_type" class="form-control" formControlName="ticket_incident_type">
+                      <option value="">Select_Incident_type</option>
+                      <option value="incident">Incident</option>
+                      <option value="security_incident">Security Incident</option>
+                      <option value="service_request">Service Request</option>
+                </select>
+                  <div *ngIf="form.get('ticket_incident_type').valid || form.get('ticket_incident_type').touched">
+                    <small *ngIf="form.get('ticket_incident_type').errors?.required" class="text-danger">Incident type required</small> 
+                  </div>
+              </div>
+            </div> 
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Category :	</label>
+                <select [class.is-invalid]="form.get('ticket_catagory').invalid && form.get('ticket_catagory').touched" id="ticket_catagory" class="form-control" formControlName="ticket_catagory">
+                      <option value="">Select_category</option>
+                      <option value="CAT1">CAT1</option>
+                      <option value="CAT2">CAT2</option>
+                      <option value="CAT3">CAT3</option>
+                </select>
+                  <div *ngIf="form.get('ticket_catagory').valid || form.get('ticket_catagory').touched">
+                    <small *ngIf="form.get('ticket_catagory').errors?.required" class="text-danger">Category required</small> 
+                  </div>
+              </div>
+            </div> 
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Sub Category :	</label>
+                <select [class.is-invalid]="form.get('ticket_sub_catagory').invalid && form.get('ticket_sub_catagory').touched" id="ticket_sub_catagory" class="form-control" formControlName="ticket_sub_catagory">
+                      <option value="">Select_Sub_Category_type</option>
+                      <option value="SUB_CAT1">Sub Category 1</option>
+                      <option value="SUB_CAT2">Sub Category 2</option>
+                      <option value="SUB_CAT3">Sub Category 3</option>
+                </select>
+                  <div *ngIf="form.get('ticket_sub_catagory').valid || form.get('ticket_sub_catagory').touched">
+                    <small *ngIf="form.get('ticket_sub_catagory').errors?.required" class="text-danger">Sub Category required</small> 
+                  </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Priority :	</label>
+                <select [class.is-invalid]="form.get('ticket_priority').invalid && form.get('ticket_priority').touched" id="ticket_priority" class="form-control" formControlName="ticket_priority">
+                      <option value="">Select_priority_type</option>
+                      <option value="urgent">Urgent</option>
+                      <option value="medium">Medium</option>
+                      <option value="low">Low</option>
+                </select>
+                  <div *ngIf="form.get('ticket_priority').valid || form.get('ticket_priority').touched">
+                    <small *ngIf="form.get('ticket_priority').errors?.required" class="text-danger">Priority required</small> 
+                  </div>
+              </div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Location :	</label>
+                <select [class.is-invalid]="form.get('location').invalid && form.get('location').touched" id="location" class="form-control" formControlName="location">
+                      <option value="">Select_location</option>
+                      <option value="india">India</option>
+                      <option value="USA">USA</option>
+                      <option value="UK">UK</option>
+                </select>
+                  <div *ngIf="form.get('location').valid || form.get('location').touched">
+                    <small *ngIf="form.get('location').errors?.required" class="text-danger">Location required</small> 
+                  </div>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="form-group">
+                  <label>Description :	</label>
+                  <textarea [class.is-invalid]="form.get('ticket_description').invalid && form.get('ticket_description').touched" type="text" class="form-control"  formControlName="ticket_description"> </textarea>
+                    <div *ngIf="form.get('ticket_description').valid || form.get('ticket_description').touched">
+                      <small *ngIf="form.get('ticket_description').errors?.required" class="text-danger">Description required</small> 
+                    </div>
+                  </div>
+            </div> 
+          </div>
+          <div class="row">
+              <div class="col-sm-12">
+                  <button type="submit" class="btn btn-outline-primary" style="width:100%">Update</button>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</form>
+

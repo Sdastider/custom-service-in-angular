@@ -1,0 +1,280 @@
+      <div  [ngClass]="edit_view_del_related_event === false ? 'modal fade modal_display_property_none' : 'modal fade show modal_display_property_block'" id="myModal" role="dialog" >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="modal-header" style="background: #942bae;box-shadow: 5px 5px 7px 1px rgb(147 138 148);height: 50px;">
+              </div>
+              <!-- <form [formGroup]="form" (ngSubmit)="submitForm()">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label>Ticket Id :* </label>
+                      <input [class.is-invalid]="form.get('Ticket_id').invalid && form.get('Ticket_id').touched" type="text" class="form-control"  formControlName="Ticket_id"/>
+                      <div *ngIf="form.get('Ticket_id').valid || form.get('Ticket_id').touched">
+                        <small *ngIf="form.get('Ticket_id').errors?.required" class="text-danger">Exp in month required</small> 
+                      </div>
+                    </div>
+                  </div>  
+                     <div class="col-sm-2">
+                      <div class="form-group">
+                        <label>User Name :* </label>
+                        <input [class.is-invalid]="form.get('User_name').invalid && form.get('User_name').touched" type="text" class="form-control"  formControlName="User_name"/>
+                        <div *ngIf="form.get('User_name').valid || form.get('User_name').touched">
+                          <small *ngIf="form.get('User_name').errors?.required" class="text-danger">Exp in month required</small> 
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Ticket Status :* </label>
+                        <input [class.is-invalid]="form.get('Ticket_status').invalid && form.get('Ticket_status').touched" type="text" class="form-control"  formControlName="Ticket_status"/>
+                        <div *ngIf="form.get('Ticket_status').valid || form.get('Ticket_status').touched">
+                          <small *ngIf="form.get('Ticket_status').errors?.required" class="text-danger">Exp in month required</small> 
+                        </div>
+                      </div>
+                     </div>
+                     <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Ticket Priority :* </label>
+                        <input [class.is-invalid]="form.get('Ticket_priority').invalid && form.get('Ticket_priority').touched" type="text" class="form-control"  formControlName="Ticket_priority"/>
+                        <div *ngIf="form.get('Ticket_priority').valid || form.get('Ticket_priority').touched">
+                          <small *ngIf="form.get('Ticket_priority').errors?.required" class="text-danger">Exp in month required</small> 
+                        </div>
+                      </div>
+                      </div>
+                     <div class="col-sm-4">
+                       <div class="form-group">
+                           <label>Ticket_action :* </label>
+                           <input [class.is-invalid]="form.get('Ticket_action').invalid && form.get('Ticket_action').touched" type="text" class="form-control"  formControlName="Ticket_action"/>
+                           <div *ngIf="form.get('Ticket_action').valid || form.get('Ticket_action').touched">
+                             <small *ngIf="form.get('Ticket_action').errors?.required" class="text-danger">Exp in month required</small> 
+                           </div>
+                       </div>
+                     </div>
+                    </div>
+                    <div class="row">
+                     <div class="col-sm-4">
+                       <div class="form-group">
+                           <label>Ticket Incident Type :*	</label>
+                           <input [class.is-invalid]="form.get('Ticket_incident_type').invalid && form.get('Ticket_incident_type').touched" type="text" class="form-control"   formControlName="Ticket_incident_type"/>
+                           <div *ngIf="form.get('Ticket_incident_type').valid || form.get('Ticket_incident_type').touched">
+                             <small *ngIf="form.get('Ticket_incident_type').errors?.required" class="text-danger">Mobile No required</small> 
+                             <small *ngIf="form.get('Ticket_incident_type').errors?.minlength" class="text-danger">Mobile No must be at least 10 Char</small> 
+                           </div>
+                       </div>
+                     </div> 
+                     <div class="col-sm-4">
+                       <div class="form-group">
+                           <label>Ticket catagory :*	</label>
+                           <input [class.is-invalid]="form.get('Ticket_catagory').invalid && form.get('Ticket_catagory').touched" type="text" class="form-control"  formControlName="Ticket_catagory"/>
+                           <div *ngIf="form.get('Ticket_catagory').valid || form.get('Ticket_catagory').touched">
+                             <small *ngIf="form.get('Ticket_catagory').errors?.required" class="text-danger">Passport No required</small> 
+                           </div>
+                       </div>
+                     </div>
+                     <div class="col-sm-4">
+                       <div class="form-group">
+                           <label>Ticket Sub catagory :*	</label>
+                           <input [class.is-invalid]="form.get('Ticket_sub_catagory').invalid && form.get('Ticket_sub_catagory').touched" type="text" class="form-control" formControlName="Ticket_sub_catagory"/>
+                           <div *ngIf="form.get('Ticket_sub_catagory').valid || form.get('Ticket_sub_catagory').touched">
+                             <small *ngIf="form.get('Ticket_sub_catagory').errors?.required" class="text-danger">Current Employer required</small> 
+                           </div>
+                       </div>
+                     </div> 
+                    </div>
+                    <div class="row">
+                     <div class="col-sm-4">
+                       <div class="form-group">
+                         <label>Ticket_creation_date :*	</label>
+                         <input [class.is-invalid]="form.get('Ticket_creation_date').invalid && form.get('Ticket_creation_date').touched" type="text" class="form-control"   formControlName="Ticket_creation_date"/>
+                           <div *ngIf="form.get('Ticket_creation_date').valid || form.get('Ticket_creation_date').touched">
+                             <small *ngIf="form.get('Ticket_creation_date').errors?.required" class="text-danger">Current Location  required</small> 
+                           </div>
+                       </div>
+                     </div>    
+                     <div class="col-sm-4">
+                      <div class="form-group">
+                        <label>Ticket_closing_date :*	</label>
+                        <input [class.is-invalid]="form.get('Ticket_closingn_date').invalid && form.get('Ticket_closingn_date').touched" type="text" class="form-control"   formControlName="Ticket_closingn_date"/>
+                          <div *ngIf="form.get('Ticket_closingn_date').valid || form.get('Ticket_closingn_date').touched">
+                            <small *ngIf="form.get('Ticket_closingn_date').errors?.required" class="text-danger">Current Location  required</small> 
+                          </div>
+                      </div>
+                    </div> 
+                    <div class="col-sm-4">
+                      <button type="submit" class="btn btn-outline-primary" style="width:100%">Update</button>
+                    </div> 
+                  </div>
+              </form>
+              <div class="row">
+              <div class="col-sm-12">
+                <div class="panel panel-default">
+                  <div class="panel-header">s</div>
+                  <div class="panel-body" style="height: 117px;overflow: scroll;">
+                    <table class="table">
+                      <tbody>
+                        <tr role="row" *ngFor="let result of viewchatResult;let i=index">
+                            <td>{{result.username}}</td>
+                            <td>{{result.comments}}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              </div> -->
+              <div class="">
+                <div class="container">
+                  <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-header">Ticket Information</div>
+                          <div class="card-body">
+                            <form [formGroup]="form" (ngSubmit)="submitForm()">
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label class="font_and_input_type_style">Id :* </label>
+                                    <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_id').invalid && form.get('Ticket_id').touched" type="text" class="form-control"  formControlName="Ticket_id"/>
+                                    <div *ngIf="form.get('Ticket_id').valid || form.get('Ticket_id').touched">
+                                      <small *ngIf="form.get('Ticket_id').errors?.required" class="text-danger">Exp in month required</small> 
+                                    </div>
+                                  </div>
+                                </div>  
+                                   <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label class="font_and_input_type_style">User Name :* </label>
+                                      <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('User_name').invalid && form.get('User_name').touched" type="text" class="form-control"  formControlName="User_name"/>
+                                      <div *ngIf="form.get('User_name').valid || form.get('User_name').touched">
+                                        <small *ngIf="form.get('User_name').errors?.required" class="text-danger">Exp in month required</small> 
+                                      </div>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                   <div class="col-sm-4">
+                                    <div class="form-group">
+                                      <label class="font_and_input_type_style">Status :* </label>
+                                      <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_status').invalid && form.get('Ticket_status').touched" type="text" class="form-control"  formControlName="Ticket_status"/>
+                                      <div *ngIf="form.get('Ticket_status').valid || form.get('Ticket_status').touched">
+                                        <small *ngIf="form.get('Ticket_status').errors?.required" class="text-danger">Exp in month required</small> 
+                                      </div>
+                                    </div>
+                                   </div>
+                                   <div class="col-sm-4">
+                                    <div class="form-group">
+                                      <label class="font_and_input_type_style">Priority :* </label>
+                                      <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_priority').invalid && form.get('Ticket_priority').touched" type="text" class="form-control"  formControlName="Ticket_priority"/>
+                                      <div *ngIf="form.get('Ticket_priority').valid || form.get('Ticket_priority').touched">
+                                        <small *ngIf="form.get('Ticket_priority').errors?.required" class="text-danger">Exp in month required</small> 
+                                      </div>
+                                    </div>
+                                    </div>
+                                   <div class="col-sm-4">
+                                     <div class="form-group">
+                                         <label class="font_and_input_type_style">Action :* </label>
+                                         <input   [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_action').invalid && form.get('Ticket_action').touched" type="text" class="form-control"  formControlName="Ticket_action"/>
+                                         <div *ngIf="form.get('Ticket_action').valid || form.get('Ticket_action').touched">
+                                           <small *ngIf="form.get('Ticket_action').errors?.required" class="text-danger">Exp in month required</small> 
+                                         </div>
+                                     </div>
+                                   </div>
+                                  </div>
+                                  <div class="row">
+                                   <div class="col-sm-4">
+                                     <div class="form-group">
+                                         <label class="font_and_input_type_style">Incident Type :*	</label>
+                                         <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_incident_type').invalid && form.get('Ticket_incident_type').touched" type="text" class="form-control"   formControlName="Ticket_incident_type"/>
+                                         <div *ngIf="form.get('Ticket_incident_type').valid || form.get('Ticket_incident_type').touched">
+                                           <small *ngIf="form.get('Ticket_incident_type').errors?.required" class="text-danger">Mobile No required</small> 
+                                           <small *ngIf="form.get('Ticket_incident_type').errors?.minlength" class="text-danger">Mobile No must be at least 10 Char</small> 
+                                         </div>
+                                     </div>
+                                   </div> 
+                                   <div class="col-sm-4">
+                                     <div class="form-group">
+                                         <label class="font_and_input_type_style">Catagory :*	</label>
+                                         <input   [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_catagory').invalid && form.get('Ticket_catagory').touched" type="text" class="form-control"  formControlName="Ticket_catagory"/>
+                                         <div *ngIf="form.get('Ticket_catagory').valid || form.get('Ticket_catagory').touched">
+                                           <small *ngIf="form.get('Ticket_catagory').errors?.required" class="text-danger">Passport No required</small> 
+                                         </div>
+                                     </div>
+                                   </div>
+                                   <div class="col-sm-4">
+                                     <div class="form-group">
+                                         <label class="font_and_input_type_style">Sub catagory :*	</label>
+                                         <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_sub_catagory').invalid && form.get('Ticket_sub_catagory').touched" type="text" class="form-control" formControlName="Ticket_sub_catagory"/>
+                                         <div *ngIf="form.get('Ticket_sub_catagory').valid || form.get('Ticket_sub_catagory').touched">
+                                           <small *ngIf="form.get('Ticket_sub_catagory').errors?.required" class="text-danger">Current Employer required</small> 
+                                         </div>
+                                     </div>
+                                   </div> 
+                                  </div>
+                                  <div class="row">
+                                   <div class="col-sm-4">
+                                     <div class="form-group">
+                                       <label class="font_and_input_type_style">Ccreation_date :*	</label>
+                                       <input [readonly]="property_type['form_field_property']"  [class.is-invalid]="form.get('Ticket_creation_date').invalid && form.get('Ticket_creation_date').touched" type="text" class="form-control"   formControlName="Ticket_creation_date"/>
+                                         <div *ngIf="form.get('Ticket_creation_date').valid || form.get('Ticket_creation_date').touched">
+                                           <small *ngIf="form.get('Ticket_creation_date').errors?.required" class="text-danger">Current Location  required</small> 
+                                         </div>
+                                     </div>
+                                   </div>    
+                                   <div class="col-sm-4">
+                                    <div class="form-group">
+                                      <label class="font_and_input_type_style">Closing_date :*	</label>
+                                      <input  [readonly]="property_type['form_field_property']" [class.is-invalid]="form.get('Ticket_closingn_date').invalid && form.get('Ticket_closingn_date').touched" type="text" class="form-control"   formControlName="Ticket_closingn_date"/>
+                                        <div *ngIf="form.get('Ticket_closingn_date').valid || form.get('Ticket_closingn_date').touched">
+                                          <small *ngIf="form.get('Ticket_closingn_date').errors?.required" class="text-danger">Current Location  required</small> 
+                                        </div>
+                                    </div>
+                                  </div> 
+                                  <div class="col-sm-4" style="padding-top: 44px;" [ngClass]="property_type['button_property'] === 'hidden' ? 'modal_display_property_none' : 'modal_display_property_block'">
+                                    <button type="submit" class="btn btn-outline-primary btn-sm"  style="width:100%">{{property_type['button_text']}}</button>
+                                  </div> 
+                                </div>
+                            </form>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="card">
+                          <div class="card-header">Comments History</div>
+                          <div class="card-header">
+                            <div class="row">
+                              <div class="col-sm-8"><input  type="text" class="form-control" /></div>
+                              <div class="col-sm-4"> <button type="submit" class="btn btn-sm btn-outline-primary" style="width:100%">submit</button></div>
+                            </div>
+                          </div>
+                          <div class="card-body">
+                            <div style="height: 280px;overflow: scroll;">
+                              <table class="table">
+                                <tbody>
+                                  <tr class="font_and_input_type_style" role="row" *ngFor="let result of viewchatResult;let i=index">
+                                      <td>{{result.username}}</td>
+                                      <td>{{result.comments}}</td>
+                                    </tr>
+                                  </tbody>
+                              </table>
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    
+                  </div>
+                 
+                </div>
+              </div>
+              <div class="modal-footer" style="background: #942bae;box-shadow: 5px 5px 7px 1px rgb(147 138 148);height: 50px;">
+              <button style="margin-top: -7px;" type="button" class="btn btn-default" data-dismiss="modal" (click)="close_modal_button()" >Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

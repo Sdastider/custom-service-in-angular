@@ -1,0 +1,281 @@
+<!--  
+<div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 ">
+        <a class="dashboard-stat dashboard-stat-light blue-soft" href="javascript:;">
+        <div class="visual">
+            <i class="fa fa-archive"></i>
+        </div>
+        <div class="details">
+            <div class="number">
+                 {{total_request}}
+            </div>
+            <div class="desc">
+                 Total Request
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 ">
+        <a class="dashboard-stat dashboard-stat-light green-soft" href="javascript:;">
+        <div class="visual">
+            <i class="fa fa-envelope"></i>
+        </div>
+        <div class="details">
+            <div class="number">
+                 {{new_request}}
+            </div>
+            <div class="desc">
+                New Request
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-light darkgray-soft" href="javascript:;">
+        <div class="visual">
+            <i class="fa fa-envelope-open"></i>
+        </div>
+        <div class="details">
+            <div class="number">
+                 {{answered_request}}
+            </div>
+            <div class="desc">
+                Answered Request
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-light darkgreen-soft" href="javascript:;">
+        <div class="visual">
+            <i class="fa fa-thumbs-up"></i>
+        </div>
+        <div class="details">
+            <div class="number">
+                 {{solved_request}}
+            </div>
+            <div class="desc">
+                Solved Request
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 ">
+        <a class="dashboard-stat dashboard-stat-light red-soft" href="javascript:;">
+        <div class="visual">
+            <i class="fa fa-lock"></i>
+        </div>
+        <div class="details">
+            <div class="number">
+                 {{closed_request}}
+            </div>
+            <div class="desc">
+                 Closed Request
+            </div>
+        </div>
+        </a>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12 ">
+        <a class="dashboard-stat dashboard-stat-light orange-soft" href="javascript:;">
+        <div class="visual">
+            <i class="fa fa-envelope"></i>
+        </div>
+        <div class="details">
+            <div class="number">
+                 {{unanswered_request}}
+            </div>
+            <div class="desc">
+                Unanswered Request
+            </div>
+        </div>
+        </a>
+    </div>
+</div> 
+
+<table role="table" class="datatable">
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader">Id</th>
+        <th role="columnheader">Service No</th>
+        <th role="columnheader">Requester Id</th>
+        <th role="columnheader">Incident Type</th>
+        <th role="columnheader">Catagory</th>
+        <th role="columnheader">Sub Catagory</th>
+        <th role="columnheader">Status</th>
+        <th role="columnheader">Action</th>
+        <th role="columnheader">Priority</th>
+        <th role="columnheader">Opening Date</th>
+        <th role="columnheader">Closing Date</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+        <tr role="row" *ngFor="let user of viewTicketslLocalResult;let i=index">
+            <td role="cell">{{i+1}}</td>
+            <td role="cell">{{user.Request_Id}}</td>
+            <td role="cell">{{user.Requester_id}}</td>
+            <td role="cell">{{user.Ticket_incident_type}}</td>
+            <td role="cell">{{user.Ticket_catagory}}</td>
+            <td role="cell">{{user.Ticket_sub_catagory}}</td>
+            <td role="cell">
+                <div *ngIf="(user.Ticket_status == 'Open'); else elseBlock"> <button type="button" class="btn btn-success btn-xs" style="padding: 2px;border-radius: 7px;font-size:smaller;">Active</button> </div>
+                <ng-template #elseBlock><button type="button" class="btn btn-danger btn-xs" style="padding: 2px;border-radius: 7px;font-size:smaller">closed</button></ng-template>
+            </td>
+            <td role="cell">
+                <div *ngIf="(user.Ticket_action == 'New Ticket'); else elseBlock"> <button type="button" class="btn btn-danger btn-xs" style="padding: 2px;border-radius: 7px;font-size:smaller">New Ticket</button> </div>
+                <ng-template #elseBlock><button type="button" class="btn btn-danger btn-xs" style="padding: 2px;border-radius: 7px;font-size:smaller">closed</button></ng-template>
+            </td>
+            <td role="cell">
+                <div *ngIf="(user.Ticket_priority == 'lo1w'); else elseBlock"> <button type="button" class="btn btn-danger btn-xs" style="padding: 2px;border-radius: 7px;font-size:smaller">Low</button> </div>
+                <ng-template #elseBlock><button type="button" class="btn btn-danger btn-xs" style="padding: 2px;border-radius: 7px;font-size:smaller">closed</button></ng-template>
+            </td>
+            <td role="cell">
+                {{user.Ticket_catagory}}
+            </td>
+            <td role="cell">
+                {{user.Ticket_catagory}}
+            </td>
+        </tr>
+    </tbody>
+  </table> -->
+  <popup-module [edit_view_del_related_event]="edit_view_del_related_event" [edit_view_del_related_req_id]="edit_view_del_related_req_id" [edit_view_del_related_req_type]="edit_view_del_related_req_type"></popup-module>
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+      <div class="card card-stats">
+        <div class="card-header card-header-warning card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-archive"></i>
+          </div>
+          <p class="card-category"><small>Total Request</small></p>
+          <h3 class="card-title">
+            {{total_request}}
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+      <div class="card card-stats">
+        <div class="card-header card-header-open card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <p class="card-category"><small>New Request</small></p>
+          <h3 class="card-title">{{new_request}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+      <div class="card card-stats">
+        <div class="card-header card-header-Ans card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-envelope-open"></i>
+          </div>
+          <p class="card-category"><small>Ans Request</small></p>
+          <h3 class="card-title">{{answered_request}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+      <div class="card card-stats">
+        <div class="card-header card-header-Answered card-header-icon">
+          <div class="card-icon">
+            <i class="fa fa-thumbs-up"></i>
+          </div>
+          <p class="card-category"><small>Solved Request</small></p>
+          <h3 class="card-title">{{solved_request}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-lock"></i>
+            </div>
+            <p class="card-category"><small>Closed Request</small></p>
+            <h3 class="card-title">{{closed_request}}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+        <div class="card card-stats">
+          <div class="card-header card-header-info card-header-icon">
+            <div class="card-icon">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <p class="card-category"><small>UnAns Request</small></p>
+            <h3 class="card-title">{{unanswered_request}}</h3>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title" style="height: 40px;">
+              
+            </h4>
+          </div>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary" role="rowgroup">
+                  <tr role="row">
+                    <th role="columnheader">Id</th>
+                    <th role="columnheader">Service No</th>
+                    <th role="columnheader">Requester Id</th>
+                    <th role="columnheader">Incident Type</th>
+                    <th role="columnheader">Catagory</th>
+                    <th role="columnheader">Sub Catagory</th>
+                    <th role="columnheader">Status</th>
+                    <th role="columnheader">Action</th>
+                    <th role="columnheader">Priority</th>
+                    <th role="columnheader">Opening Date</th>
+                    <th role="columnheader">Closing Date</th>
+                    <th role="columnheader">Action</th>
+                  </tr>
+                 </thead>
+                 <tbody role="rowgroup">
+                  <tr role="row" *ngFor="let user of viewTicketslLocalResult;let i=index">
+                    <td role="cell">{{i+1}}</td>
+                    <td role="cell">{{user.Request_Id}}</td>
+                    <td role="cell">{{user.Requester_id}}</td>
+                    <td role="cell">{{user.Ticket_incident_type}}</td>
+                    <td role="cell">{{user.Ticket_catagory}}</td>
+                    <td role="cell">{{user.Ticket_sub_catagory}}</td>
+                    <td role="cell">
+                        <div *ngIf="(user.Ticket_status == 'Open'); else elseBlock"> <span class="label_active">Open</span> </div>
+                        <ng-template #elseBlock><span class="label_closed">Closed</span></ng-template>
+                    </td>
+                    <td role="cell">
+                        <div *ngIf="(user.Ticket_action == 'New Ticket')"><span class="label_new_request">New</span></div>
+                        <div *ngIf="(user.Ticket_action == 'Solved')"><span class="label_solved_request">Solved</span></div>
+                        <div *ngIf="(user.Ticket_action == 'Answared')"><span class="label_ans_request">Answared</span></div>
+                        <div *ngIf="(user.Ticket_action == 'UnAnswared')"><span class="label_unans_request">Un Ans</span></div>
+                      </td>
+                    <td role="cell">
+                        <div *ngIf="(user.Ticket_priority == 'High')"><span class="label_priority_high">High</span></div>
+                        <div *ngIf="(user.Ticket_priority == 'urgent')"><span class="label_priority_critical">urgent</span></div>
+                        <div *ngIf="(user.Ticket_priority == 'medium')"><span class="label_priority_medium">Medium</span></div>
+                        <div *ngIf="(user.Ticket_priority == 'low')"><span class="label_priority_low">Low</span></div>
+                    <td role="cell">
+                        {{user.Ticket_catagory}}
+                    </td>
+                    <td role="cell">
+                        {{user.Ticket_catagory}}
+                    </td>
+                    <td role="cell">
+                      <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-primary btn_active" (click)="viewById(user.Request_Id)">View</button>
+                        <button type="button" class="btn btn-primary btn_active" (click)="editById(user.Request_Id)">Edit</button>
+                        <button type="button" class="btn btn-primary btn_active" (click)="delById(user.Request_Id)">Delete</button>
+                      </div>
+                    </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+      </div>
+    </div>
+ 

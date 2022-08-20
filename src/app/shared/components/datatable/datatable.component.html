@@ -1,0 +1,24 @@
+  {{header}}
+  <table id="tableSortExample" mdbTable  mdbTableScroll scrollY="true" maxHeight="400" maxWidth="600"   class="z-depth-1 table table-striped table-hover ">
+    <thead class="table_header">
+      <tr>
+        <th class="align" scope="col" *ngFor="let head of header; let i = index" aria-controls="tableSortExample" scope="col" [mdbTableSort]="result" [sortBy]="header[i]">{{head | uppercase}}
+          <mdb-icon fas icon="sort" style="color:black"></mdb-icon>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of result">
+           <td class="button" (click) ='onSave(user.vacancy_id)'>{{user.vacancy_id}}</td> 
+            <td>{{user.VDU}}</td>
+            <td>{{user.Practice}}</td>
+            <td>{{user.Role}}</td>
+            <td>{{user.PrimarySkills}}</td>
+            <td>{{user.NoofPosition}}</td>
+            <td>{{user.Country}}</td>
+            <td>{{user.JobLocation}}</td>
+        </tr>
+    </tbody>
+</table> 
+
+
