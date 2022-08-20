@@ -8,8 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 /* Mdb boostrap container section */
 
-/* Mdb boostrap container section */
-/* Module specific import */
+
 /*
   import { EoGoModule } from './modules/EoGoModule/EoGoModule.component';
   import { EoGoSchemaModule } from './modules/EoGoSchemaModule/EoGoSchemaModule.component';
